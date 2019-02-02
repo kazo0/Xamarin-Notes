@@ -13,7 +13,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell Text="{Binding Text}"
-                          Detail="{Binding CreateDate}" />
+                          Detail="{Binding Date}" />
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

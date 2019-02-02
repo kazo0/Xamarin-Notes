@@ -18,26 +18,11 @@ namespace Notes
 			InitializeComponent ();
 		}
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            var notes = new List<Note>();
-
-            var files = Directory.EnumerateFiles(App.FolderPath, "*.notes.txt");
-            foreach (var fileName in files)
-            {
-                notes.Add(new Note
-                {
-                    Filename = fileName,
-                    Text = File.ReadAllText(fileName),
-                    CreateDate = File.GetCreationTime(fileName)
-                
-                });
-            }
-
-            listView.ItemsSource = notes
-                .OrderBy(d => d.CreateDate);
+            listView.ItemsSource = await App.Database.GetNotesAsync();
         }
 
         private async void OnNoteAddedClicked(object sender, EventArgs e)
