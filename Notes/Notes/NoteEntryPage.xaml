@@ -7,8 +7,7 @@
         <Editor Placeholder="Enter your note"
                 Text="{Binding Text}"
                 HeightRequest="100"
-                Keyboard="Text"
-                />
+                Keyboard="Text"/>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
